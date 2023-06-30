@@ -14,13 +14,15 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json({ limit: "50mb"}));
 app.use(morgan("common"));
+
 dotenv.config();
 
 // Connect to mongoDB;
-mongoose.connect((process.env.MONGOOSE_URL), { useNewUrlParser: true, useUnifiedTopology: true})
-    .then(() => {
+mongoose.connect((process.env.MONGOOSE_URL), { useNewUrlParser: true}).then(() => {
         console.log("Connected to DB")
-    })
+    }).catch(err => {
+        console.log(err)
+    }) 
 
 // ROUTES
 app.use('/v1/movies', movieRoute);
