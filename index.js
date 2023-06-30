@@ -18,7 +18,7 @@ app.use(morgan("common"));
 dotenv.config();
 
 // Connect to mongoDB;
-mongoose.connect((process.env.MONGOOSE_URL), { useNewUrlParser: true}).then(() => {
+mongoose.connect(process.env.MONGOOSE_URL, { useNewUrlParser: true}).then(() => {
         console.log("Connected to DB")
     }).catch(err => {
         console.log(err)
