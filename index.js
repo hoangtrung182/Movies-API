@@ -9,7 +9,7 @@ const movieRoute = require("./routes/movies");
 
 // SET UP
 const app = express();
-const PORT = 8080;
+// const PORT = 8080;
 
 app.use(cors());
 app.use(bodyParser.json({ limit: "50mb"}));
@@ -22,11 +22,9 @@ mongoose.connect((process.env.MONGOOSE_URL), { useNewUrlParser: true, useUnified
         console.log("Connected to DB")
     })
 
-
-
 // ROUTES
 app.use('/v1/movies', movieRoute);
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}....`)
+app.listen(process.env.PORT || 8080, () => {
+    console.log(`Server is running on port....`)
 })
