@@ -18,7 +18,7 @@ app.use(morgan("common"));
 dotenv.config();
 
 // Connect to mongoDB;
-mongoose.connect(process.env.MONGOOSE_URL, { useNewUrlParser: true, useUnifiedTopology: true,})
+mongoose.connect('mongodb+srv://mymovies:hoangtrung9@movie-api.ywtwjwa.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true,})
 mongoose.connection.once('open', function(){
     console.log('Conection has been made!');
   }).on('error', function(error){
